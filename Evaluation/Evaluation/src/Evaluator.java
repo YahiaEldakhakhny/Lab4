@@ -199,8 +199,8 @@ public class Evaluator {
     final String variables = "abc";
     final String operators = "+-*/^";
     int[] values = new int[3];
-    final String[] invalidSequences = {"^(--)", "([a-z]|\\d{0,})(--)([a-z]|\\d{0,})", "(--)$"};
-    final String[] replacements = {"", "$1"+"\\+"+"$3", ""};
+    final String[] invalidSequences = {"^(--)", "([a-z]|\\d{0,})(\\+|\\-|\\*|\\/|\\^)(--)([a-z]|\\d{0,})", "([a-z]|\\d{0,})(--)([a-z]|\\d{0,})", "(--)$"};
+    final String[] replacements = {"", "$1"+"$2"+"$4", "$1"+"\\+"+"$3", ""};
     String err = "Error";
     
     public static void main(String[] args) throws Exception {
